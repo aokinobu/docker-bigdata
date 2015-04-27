@@ -2,7 +2,6 @@ FROM tomcat:8.0
 MAINTAINER Nobuyuki Paul Aoki <aokinobu@gmail.com>
 
 RUN apt-get update
-
 RUN apt-get -y install ant git-core default-jdk
 
 WORKDIR /
@@ -16,6 +15,6 @@ WORKDIR /
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ADD run.sh /run.sh
-
+RUN chmod a+x /run.sh
 WORKDIR /bigdata
 CMD ["/run.sh"]
